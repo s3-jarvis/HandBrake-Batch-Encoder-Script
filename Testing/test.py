@@ -3,7 +3,7 @@
 import os, sys, time
 
 class FileData:
-	__fileDate = ""
+	__fileDate= ""
 	__fileTime = ""
 	__filePath = r""
 	__fileContents = list()
@@ -20,10 +20,15 @@ class FileData:
 	def doesFileExist(self):
 		return os.path.exists(self.__filePath)
 
-	def getTimestamp(self, path):
-		self.__fileDate = time.strftime('%d-%m-%Y', time.localtime(os.path.getmtime(path)))
-		self.__fileTime = time.strftime('%H:%M', time.localtime(os.path.getmtime(path))) 
-		return [self.__fileDate, self.__fileTime]
+	def getDateStamp(self, path):
+		stat = os.path.getmtime(r"{}".format(path))
+		self.__fileDate = time.strftime('%d-%m-%Y', time.localtime(stat))
+		return self.__fileDate
+
+	def getTimeStamp(self, path):
+		stat = os.path.getmtime(r"{}".format(path))
+		self.__fileTime = time.strftime('%H:%M', time.localtime(stat))
+		return self.__fileTime
 
 	def writeContent(self):
 		fd.__setWriteMode()
@@ -70,7 +75,7 @@ if(fd.doesFileExist() or fd.isFileEmpty()):
 
 k = 1
 for i in fd.getFile():
-	print(i, fd.getTimestamp(r"{}".format(i)))
+	print(i + "{}".format(fd.getTimestamp(i.strip('\n'))), end = "")
 	if(input() == 'T'):
 		fd.writeContentIndex(k)
 		k+=1
