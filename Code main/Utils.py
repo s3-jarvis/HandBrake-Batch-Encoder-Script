@@ -1,5 +1,31 @@
+""" Utility Library for Batch Video Encoding Script based on HandBrakeCLI
+
+Imports
+-------
+os
+	Required for obtaining Files and Folder Stats and Properties
+
+subprocess
+	Required for running the HandBrakeCLI 
+
+tabulate
+	For printing a formatted table of Folder Contents
+
+time
+	For SystemCoolDown Timer method implemented in Encoder Class
+
+Requirements
+------------
+tabulate (v0.8.9)
+	Required for displaying table of folder contents
+
+Author
+------
+s3_jarvis
+
+"""
+
 import os, subprocess
-#from Arrays import insert
 from tabulate import tabulate
 import time
 
@@ -39,7 +65,12 @@ class Encoder:
 
 	def __str__(self):
 		"""
-		Greeting Function; invoked upon function call.
+		Greeting Function; invoked upon printing class object.
+
+		Returns
+		-------
+		str
+			A string containing the appropriate print message
 
 		"""
 
@@ -57,8 +88,11 @@ class Encoder:
 		
 		"""
 
-		self.__basePath = path
-		self.files = os.listdir(self.__basePath);
+		if(self.__doesDirectoryExist(path)):
+			self.__basePath = path
+			self.files = os.listdir(self.__basePath);
+		else:
+			raise DirectoryNotFoundException("Input")
 
 	def setDstPath(self, path):
 		"""
@@ -71,7 +105,10 @@ class Encoder:
 
 		"""
 
-		self.__dstPath = path
+		if(self.__doesDirectoryExist(path)):
+			self.__dstPath = path
+		else:
+			raise DirectoryNotFoundException("Output")
 
 	def setPreset(self, index):
 		"""
@@ -128,7 +165,10 @@ class Encoder:
 			self.__HBcmd[4] = r"{}".format(os.path.join(self.__dstPath, file)[:-3] + "mp4")
 			self.__HBcmd[6] = r"{}".format(self.__preset)
 			
-			#subprocess.run(self.__HBcmd, shell = True)
+			status = subprocess.run(self.__HBcmd, shell = True)
+
+			if(status.returncode):
+				raise EncodeFailureException()
 
 			self.__SystemCoolDown(fileSize)
 	
@@ -169,10 +209,33 @@ class Encoder:
 		path: str **
 			File path for which last modified date and time is required
 
+		Returns
+		-------
+		str
+			A string containing the last modified date and time stamp
+
 		"""
 
 		self.__fileDateTime = time.strftime('%d-%m-%Y  %H:%M:%S', time.localtime(os.path.getmtime(r"{}".format(path))))
 		return self.__fileDateTime
+
+	def __doesDirectoryExist(self, path):
+		"""
+		This function returns true if the file path exists.
+
+		Parameters
+		----------
+		path: str **
+			File path whose existence is to be checked
+
+		Returns
+		-------
+		bool
+			Existence of file path
+
+		"""
+
+		return os.path.exists(path)
 
 
 class ArgumentException(RuntimeError):
@@ -197,6 +260,11 @@ class ArgumentException(RuntimeError):
 	def __str__(self):
 		"""
 		Print a message to the stdout when incorrect arguments are passed via command line.
+
+		Returns
+		-------
+		str
+			A string containing the appropriate print message
 
 		"""
 
@@ -232,6 +300,11 @@ class DirectoryNotFoundException(RuntimeError):
 		"""
 		Print a message to the stdout when Directory Path passed via command line doesn't exist.
 
+		Returns
+		-------
+		str
+			A string containing the appropriate print message
+
 		"""
 
 		return "\nError: {} Directory not found!".format(self.__directoryType)
@@ -247,6 +320,31 @@ class FileNotFoundException(RuntimeError):
 		"""
 		Print a message to the stdout when no files are found in the input directory.
 
+		Returns
+		-------
+		str
+			A string containing the appropriate print message
+
 		"""
 		
 		return "\nError: No files found!"
+
+
+class EncodeFailureException(RuntimeError):
+	"""
+	User-defined Exception Handling Function which inherits RuntimeError. 
+	
+	"""
+
+	def __str__(self):	
+		"""
+		Print a message to the stdout when HandBrakeCLI fails in encoding a video file.
+
+		Returns
+		-------
+		str
+			A string containing the appropriate print message
+
+		"""
+		
+		return "\nError: Encoding Failed!"
