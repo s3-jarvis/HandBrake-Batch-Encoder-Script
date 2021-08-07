@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import sys
-from Utils import *
+from Utils import Encoder, FileNotFoundException, DirectoryNotFoundException, ArgumentException
 
 def main():
 	n = len(sys.argv)
@@ -21,7 +21,7 @@ def main():
 			else:
 				raise DirectoryNotFoundException("Output")
 
-			encoder.init()
+			print(encoder)
 
 			if(len(encoder.files) > 0):
 				encoder.fileTable()
@@ -36,8 +36,8 @@ def main():
 			else:
 				raise FileNotFoundException()
 
-	except (ArgumentException, DirectoryNotFoundException, FileNotFoundException, KeyboardInterrupt):
-		print("\nExiting ...")
+	except (ArgumentException, DirectoryNotFoundException, FileNotFoundException, KeyboardInterrupt) as e:
+		print(e, "\nExiting ...")
 		sys.exit(0)
 
 

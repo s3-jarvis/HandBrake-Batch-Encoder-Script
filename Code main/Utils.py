@@ -1,5 +1,5 @@
 import os, subprocess
-from Arrays import *
+#from Arrays import insert
 from tabulate import tabulate
 import time
 
@@ -37,13 +37,13 @@ class Encoder:
 	__presets = ["C:\Program Files\HandBrakeCLI-1.4.0\Fast_1080p30.json", "C:\Program Files\HandBrakeCLI-1.4.0\Web_Fast_1080p30.json"]
 	files = list()
 
-	def init(self):
+	def __str__(self):
 		"""
 		Greeting Function; invoked upon function call.
 
 		"""
 
-		print("\nWelcome to the BatchEncodeScript! \nDescription: This is a Batch Video Encoder based on HandBrakeCLI.\nAuthor: s3_jarvis\n");
+		return "\nWelcome to the BatchEncodeScript! \nDescription: This is a Batch Video Encoder based on HandBrakeCLI.\nAuthor: s3_jarvis\n"
 
 	def setBasePath(self, path):
 		"""
@@ -128,7 +128,7 @@ class Encoder:
 			self.__HBcmd[4] = r"{}".format(os.path.join(self.__dstPath, file)[:-3] + "mp4")
 			self.__HBcmd[6] = r"{}".format(self.__preset)
 			
-			subprocess.run(self.__HBcmd, shell = True)
+			#subprocess.run(self.__HBcmd, shell = True)
 
 			self.__SystemCoolDown(fileSize)
 	
@@ -183,8 +183,8 @@ class ArgumentException(RuntimeError):
 
 	def __init__(self, args):
 		"""
-		Print a message to the stdout when incorrect arguments are passed via command line.
-
+		Init Function for ArgumentException Handling.
+		
 		Parameters
 		----------
 		args
@@ -194,11 +194,19 @@ class ArgumentException(RuntimeError):
 
 		self.__args = args
 
+	def __str__(self):
+		"""
+		Print a message to the stdout when incorrect arguments are passed via command line.
+
+		"""
+
 		if(self.__args < 2):
-			print("\nNo arguments! \nUsage: python BatchEncodeScript.py -i <source folder> -o <destination folder>")
+			str = "\nNo arguments! \nUsage: python BatchEncodeScript.py -i <source folder> -o <destination folder>"
 
 		elif(self.__args < 5):
-			print("\nIncorrect arguments! \nUsage: python BatchEncodeScript.py -i <source folder> -o <destination folder>")			
+			str = "\nIncorrect arguments! \nUsage: python BatchEncodeScript.py -i <source folder> -o <destination folder>"
+
+		return str
 
 
 class DirectoryNotFoundException(RuntimeError):
@@ -209,7 +217,7 @@ class DirectoryNotFoundException(RuntimeError):
 
 	def __init__(self, directoryType):
 		"""
-		Print a message to the stdout when Directory Path passed via command line doesn't exist.
+		Init Function for DirectoryNotFoundException Handling.
 
 		Parameters
 		----------
@@ -220,7 +228,13 @@ class DirectoryNotFoundException(RuntimeError):
 
 		self.__directoryType = directoryType
 
-		print("\nError: {} Directory not found!".format(self.__directoryType))
+	def __str__(self):
+		"""
+		Print a message to the stdout when Directory Path passed via command line doesn't exist.
+
+		"""
+
+		return "\nError: {} Directory not found!".format(self.__directoryType)
 
 
 class FileNotFoundException(RuntimeError):
@@ -229,10 +243,10 @@ class FileNotFoundException(RuntimeError):
 	
 	"""
 
-	def __init__(self):	
+	def __str__(self):	
 		"""
 		Print a message to the stdout when no files are found in the input directory.
 
 		"""
 		
-		print("\nError: No files found!")				
+		return "\nError: No files found!"
