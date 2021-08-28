@@ -269,10 +269,10 @@ class ArgumentException(RuntimeError):
 		"""
 
 		if(self.__args < 2):
-			str = "\nNo arguments! \nUsage: python BatchEncodeScript.py -i <source folder> -o <destination folder>"
+			str = "\nNo arguments found! \nUsage: python main.py -i <source folder> -o <destination folder>"
 
 		elif(self.__args < 5):
-			str = "\nIncorrect arguments! \nUsage: python BatchEncodeScript.py -i <source folder> -o <destination folder>"
+			str = "\nIncorrect arguments! \nUsage: python main.py -i <source folder> -o <destination folder>"
 
 		return str
 
