@@ -10,11 +10,11 @@ By using my script, you can encode an entire directory of video files with just 
 
 ### Features
 This script has the following features, (more features coming soon!)
-[x] Single Command for getting your job done!
-[x] System Cool Down Time after each Video Encoding
-[x] File System View of the Input Directory
-[x] OOPs for Code Reuse
-[x] Exception Handling for Smooth Code Execution
+- [x] Single Command for getting your job done!
+- [x] System Cool Down Time after each Video Encoding
+- [x] File System View of the Input Directory
+- [x] OOPs for Code Reuse
+- [x] Exception Handling for Smooth Code Execution
 
 ### Prerequisites
 - [Download](https://handbrake.fr/rotation.php?file=HandBrakeCLI-1.4.1-win-x86_64.zip) HandBrakeCLI and extract its contents into a directory (preferably Program Files in C Drive) and copy the path of this directory. 
