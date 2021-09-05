@@ -17,9 +17,9 @@ This script has the following features, (more features coming soon!)
 - [x] Exception Handling for Smooth Code Execution
 
 ### Prerequisites
-- [Download](https://handbrake.fr/rotation.php?file=HandBrakeCLI-1.4.1-win-x86_64.zip) HandBrakeCLI and extract its contents into a directory (preferably Program Files in C Drive) and copy the path of this directory. 
+- Download [HandBrakeCLI](https://handbrake.fr/rotation.php?file=HandBrakeCLI-1.4.1-win-x86_64.zip) and extract its contents into a directory (preferably Program Files in C Drive) and copy the path of this directory. 
 - Now, Edit the Environment PATH variable and add the path of this directory. 
-- [Download](https://www.python.org/downloads/) and Install Python (if you don't have it already).
+- Download and Install [Python](https://www.python.org/downloads/) (if you don't have it already).
 - Download the .zip of this repo (or) Clone it into your system by running the command,
     ```
     git clone https://github.com/s3-jarvis/HandBrake-Batch-Encoder-Script.git
