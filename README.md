@@ -1,7 +1,7 @@
-# Batch Video Encoding Script using HandBrakeCLI
+## Batch Video Encoding Script using HandBrakeCLI
 
 ### Introduction
-Let's say that you have recorded your Video Lectures/Meetings and now they're taking up large amounts of space on your hard drive ( or SSD), what do you do?
+Let's say that you have recorded your Video Lectures/Meetings and now they're taking up large amounts of space on your hard drive (or SSD), what do you do?
 The answer to that problem is Video Encoding. HandBrake is a popular open-source software that does this job for you. In this Python Script, I'll be making use of their CLI Tool for Batch Video Encoding.
 
 ### Why this Script?
@@ -18,7 +18,7 @@ This script has the following features, (more features coming soon!)
 
 ### Prerequisites
 - [Download](https://handbrake.fr/rotation.php?file=HandBrakeCLI-1.4.1-win-x86_64.zip) HandBrakeCLI and extract its contents into a directory (preferably Program Files in C Drive) and copy the path of this directory. 
-- Now, Set Environment PATH variable and add the path of this directory. 
+- Now, Edit the Environment PATH variable and add the path of this directory. 
 - [Download](https://www.python.org/downloads/) and Install Python (if you don't have it already).
 - Download the .zip of this repo (or) Clone it into your system by running the command,
     ```
