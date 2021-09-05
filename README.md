@@ -1,11 +1,11 @@
 ## Batch Video Encoding Script using HandBrakeCLI
 
 ### Introduction
-Let's say that you have recorded your Video Lectures/Meetings and now they're taking up large amounts of space on your hard drive (or SSD), what do you do?
+Let's say that you have recorded your Video Lectures/Meetings and now they're taking up large amounts of space on your hard drive (or SSD), what do you do? <br />
 The answer to that problem is Video Encoding. HandBrake is a popular open-source software that does this job for you. In this Python Script, I'll be making use of their CLI Tool for Batch Video Encoding.
 
 ### Why this Script?
-By default, HandBrake supports encoding multiple video files by adding them to the queue. But where's the fun in that?
+By default, HandBrake supports encoding multiple video files by adding them to the queue. But where's the fun in that? <br />
 By using my script, you can encode an entire directory of video files with just a single command!
 
 ### Features
