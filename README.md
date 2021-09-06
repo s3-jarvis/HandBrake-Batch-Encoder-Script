@@ -48,9 +48,23 @@ Refer to the Code DocString for more info.
 ~$ python
 Python 3.8.7 (tags/v3.8.7:6503f05, Dec 21 2020, 17:59:51) [MSC v.1928 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
->> import main, Utils
->> help(main)
->> help(Utils)
+>>> import main, Utils
+>>> help(main)
+Help on module main:
+
+NAME
+    main - Batch Video Encoding Script based on HandBrakeCLI
+
+--- More ---
+>>>
+>>> help(Utils)
+Help on module Utils:
+
+NAME
+    Utils - Utility Library for Batch Video Encoding Script based on HandBrakeCLI
+
+--- More ---
+>>>
 ```
 >NOTE: You should be inside the directory for running these command! 
 
