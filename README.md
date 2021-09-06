@@ -40,14 +40,13 @@ This script must be execute in the following format,
 ```sh
 python main.py -i <InputDirectoryPath> -o <OutputDirectoryPath>
 ```
-<br />
-| Arguments             | Description                                                                                |
-| --------------------- | ------------------------------------------------------------------------------------------ | 
-| -i                    | Required to define the directory as input                                                  |
-| <InputDirectoryPath>  | Complete path of the Input Directory which contains the video files that are to be encoded |
-| -o                    | Required to define the directory as output                                                 |
-| <OutputDirectoryPath> | Complete path of the Output Directory where the encoded files will be stored               |
-<br />
+
+| Argument                    | Description                                                                                |
+|-----------------------------|--------------------------------------------------------------------------------------------|
+| ```-i```                    | Required to define the directory as input                                                  |
+| ```<InputDirectoryPath>```  | Complete path of the Input Directory which contains the video files that are to be encoded |
+| ```-o```                    | Required to define the directory as output                                                 |
+| ```<OutputDirectoryPath>``` | Complete path of the Output Directory where the encoded files will be stored               |
 
 Refer to the code DocString for more info.
 ```py
