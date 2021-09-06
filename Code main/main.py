@@ -7,7 +7,7 @@ It is assumed that HandBrakeCLI and Preset files are already installed/added in 
 
 Arguments
 ---------
-This tool must be execute in the following format,
+This tool must be executed in the following format,
 
 	python main.py -i <InputDirectoryPath> -o <OutputDirectoryPath>
 
