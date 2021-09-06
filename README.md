@@ -28,7 +28,8 @@ This script has the following features, (more features coming soon!)
     ```sh
     pip install -r Requirements.txt
     ```
-    >NOTE: You should be inside the directory for running this command! 
+    >**_NOTE:_** You should be inside the directory for running this command! 
+- Don't forget to copy the Preset Files present in this repo to the HandBrakeCLI directory. (my directory is named ```HandBrakeCLI-1.4.0```, in case you name it differently, make the appropriate change in the code! /*Line 63 in __Utils.py__*/)
 
 ### Usage
 This script must be execute in the following format,
@@ -66,10 +67,13 @@ NAME
 --- More ---
 >>>
 ```
->NOTE: You should be inside the directory for running these command! 
+>**_NOTE:_** You should be inside the directory for running these command! 
 
 ### Acknowledgements
-Thanks to HandBrake
+I would like to thank **_HandBrake_** for creating such an awesome software/CLI without which this script wouldn't be created. <br />
+I would also thank the numerous _Python Resources_ on the Internet which provided me with the necessary knowledge to build this script.
 
 ### Future Thoughts
-Upgrades to this script!
+This script can be further upgraded with the addition of the following features,
+- [ ] Include an optional ```-p <PresetPath>``` argument which will allow the User to add the Preset file
+- [ ] Sorting Video Files based on size before beginning the Encode Process
