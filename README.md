@@ -4,13 +4,9 @@
 Let's say that you have recorded your Video Lectures/Meetings and now they're taking up large amounts of space on your hard drive (or SSD), what do you do? <br />
 The answer to that problem is Video Encoding. HandBrake is a popular open-source software that does this job for you. In this Python Script, I'll be making use of their CLI Tool for Batch Video Encoding.
 
-<br />
-
 ### Why this Script?
 By default, HandBrake supports encoding multiple video files by adding them to the queue. But where's the fun in that? <br />
 By using my script, you can encode an entire directory of video files with just a single command!
-
-<br />
 
 ### Features
 This script has the following features, (more features coming soon!)
@@ -19,8 +15,6 @@ This script has the following features, (more features coming soon!)
 - [x] File System View of the Input Directory
 - [x] OOPs for Code Reuse
 - [x] Exception Handling for Smooth Code Execution
-
-<br />
 
 ### Prerequisites
 - Download [HandBrakeCLI](https://handbrake.fr/rotation.php?file=HandBrakeCLI-1.4.1-win-x86_64.zip) and extract its contents into a directory (preferably Program Files in C Drive) and copy the path of this directory. 
@@ -35,8 +29,6 @@ This script has the following features, (more features coming soon!)
     pip install -r Requirements.txt
     ```
     >NOTE: You should be inside the directory for running this command! 
-
-<br />
 
 ### Usage
 This script must be execute in the following format,
@@ -61,8 +53,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 >> help(Utils)
 ```
 >NOTE: You should be inside the directory for running these command! 
-
-<br />
 
 ### Acknowledgements
 Thanks to HandBrake
